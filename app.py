@@ -1,45 +1,46 @@
 from resources.utils import *
 
 def main():
-    
-	st.markdown(
-		"""
-		# LeonardoAI Prompt Generator
-		This app generates prompts for LeonardoAI's image generation models.
 
-		# About LeonardoAI
-		LeonardoAI is a generative AI that generates images based on given prompts, you can learn more about LeonardoAI [here](https://leonardo.ai/).
+	with st.sidebar:
+		st.markdown(
+			"""
+			# Prompt Generator
+			This app generates prompts for LeonardoAI's image generation model, you can also use it for Midjourney or other AI models.
 
-		# How to use this app
-		1. Select the type of prompt you want to generate.
-		2. Fill the required information.
-		3. Click on the "Generate Prompt" button.
-		4. Copy the generated prompt and paste it in the LeonardoAI prompt field.
-		5. Copy the negative prompt and paste it in the LeonardoAI negative prompt field.
-		6. Generate the image and share it with the world!
+			# About LeonardoAI
+			LeonardoAI is a generative AI that generates images based on given prompts, you can learn more about LeonardoAI [here](https://leonardo.ai/).
 
-		# Got any questions?
-		You can contact me via email
-		"""
-	)
-	
-	mention(
-            label="alvaro.quinteros.a@gmail.com",
-            icon="📧",
-            url="mailto:alvaro.quinteros.a@gmail.com"
-        )
-    
-	st.markdown(
-		"""
-		Or open an issue in the GitHub repo
-		"""
-	)
-        
-	mention(
-            label="leonardoai-prompt-generator",
-            icon="github",
-            url="https://github.com/aquinteros/leonardoai-prompt-generator"
-        )
+			# How to use this app
+			1. Select the type of prompt you want to generate.
+			2. Fill the required information.
+			3. Click on the "Generate Prompt" button.
+			4. Copy the generated prompt and paste it in the LeonardoAI prompt field.
+			5. Copy the negative prompt and paste it in the LeonardoAI negative prompt field.
+			6. Generate the image and share it with the world!
+
+			# Got any questions?
+			You can contact me via email
+			"""
+		)
+
+		mention(
+				label="alvaro.quinteros.a@gmail.com",
+				icon="📧",
+				url="mailto:alvaro.quinteros.a@gmail.com"
+			)
+		
+		st.markdown(
+			"""
+			Or open an issue in the GitHub repo
+			"""
+		)
+			
+		mention(
+				label="leonardoai-prompt-generator",
+				icon="github",
+				url="https://github.com/aquinteros/leonardoai-prompt-generator"
+			)
     
 	colored_header("LeonardoAI Prompt Generator", color_name='blue-70', description="Generate prompts for LeonardoAI's image generation models.")
 
