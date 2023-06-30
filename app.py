@@ -36,9 +36,9 @@ def main():
 	)
         
 	mention(
-            label="wiki-summarize",
+            label="leonardoai-prompt-generator",
             icon="github",
-            url="https://github.com/aquinteros/wiki-summarize"
+            url="https://github.com/aquinteros/leonardoai-prompt-generator"
         )
     
 	colored_header("LeonardoAI Prompt Generator", color_name='blue-70', description="Generate prompts for LeonardoAI's image generation models.")
