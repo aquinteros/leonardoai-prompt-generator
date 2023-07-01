@@ -6,7 +6,7 @@ def main():
 		st.markdown(
 			"""
 			# Prompt Generator
-			This app generates prompts for LeonardoAI's image generation model, you can also use it for Midjourney or other AI models.
+			This app generates prompts for LeonardoAI's image generation model, you can also use it for other tools like Midjourney or Dall-E.
 
 			# About LeonardoAI
 			LeonardoAI is a generative AI that generates images based on given prompts, you can learn more about LeonardoAI [here](https://leonardo.ai/).
@@ -69,14 +69,20 @@ def main():
 
 		art_styles = st.multiselect(
 			"Select the art syles that may apply in the image",
-			['Studio Ghibli', 'Anime', 'Cartoon', 'Oil Painting', 'Pencil Drawing', 'Watercolor', 'Impressionism', 'Expressionism', 'Abstract', 'Realism', 'Surrealism', 'Pop Art', 'Minimalism', 'Cubism', 'Fauvism', 'Art Nouveau', 'Renaissance', 'Baroque', 'Gothic', 'Ancient Greek', 'Ancient Egyptian', 'Ancient Roman', 'Byzantine', 'Medieval', 'Rococo', 'Neoclassicism', 'Romanticism', 'Pre-Raphaelite', 'Post-Impressionism', 'Pointillism', 'Art Deco', 'Contemporary', 'Modern', 'Futurism', 'Dadaism', 'Constructivism', 'Suprematism', 'De Stijl', 'Bauhaus', 'Conceptual', 'Performance', 'Installation', 'Land', 'Street', 'Photorealism', 'Hyperrealism', 'Digital', 'Pixel', 'Glitch', 'Vaporwave', 'Cyberpunk', 'Steampunk', 'Sci-Fi', 'Fantasy', 'Horror', 'Manga', 'Comics', 'Graffiti', 'Calligraphy', 'Typography', 'Lettering', 'Tattoo', 'Body Art', 'Fashion', 'Jewelry', 'Architecture', 'Interior', 'Industrial', 'Product', 'Furniture', 'Graphic', 'Web', 'UI', 'UX', 'Game', 'Logo', 'Icon', 'Poster', 'Packaging', 'Book', 'Magazine', 'Newspaper', 'Album', 'Movie', 'TV', 'Animation', 'Video', 'Sound', 'Music', 'Performance', 'Theater', 'Dance', 'Ceramic', 'Glass', 'Metal', 'Wood', 'Textile', 'Leather', 'Paper', 'Plastic', 'Stone', 'Concrete', 'Marble', 'Brick', 'Clay', 'Sand', 'Water', 'Fire', 'Air', 'Earth', 'Nature', 'Landscape', 'Cityscape', 'Portrait', 'Figure', 'Animal', 'Botanical', 'Food', 'Still Life', 'Abstract', 'Geometric', 'Pattern', 'Texture', 'Color', 'Black & White', 'Monochrome', 'Pastel', 'Neon', 'Retro', 'Vintage', 'Grunge', 'Glitch'],
+			['Studio Ghibli', 'Anime', 'Cartoon', 'Oil Painting', 'Pencil Drawing', 'Watercolor', 'Impressionism', 'Expressionism', 'Shadow Painting', 'Abstract', 'Realism', 'Surrealism', 'Pop Art', 'Minimalism', 'Cubism', 'Fauvism', 'Art Nouveau', 'Renaissance', 'Baroque', 'Gothic', 'Ancient Greek', 'Ancient Egyptian', 'Ancient Roman', 'Byzantine', 'Medieval', 'Rococo', 'Neoclassicism', 'Romanticism', 'Pre-Raphaelite', 'Post-Impressionism', 'Pointillism', 'Art Deco', 'Contemporary', 'Modern', 'Futurism', 'Dadaism', 'Constructivism', 'Suprematism', 'De Stijl', 'Bauhaus', 'Conceptual', 'Performance', 'Installation', 'Land', 'Street', 'Photorealism', 'Hyperrealism', 'Digital', 'Pixel', 'Glitch', 'Vaporwave', 'Cyberpunk', 'Steampunk', 'Sci-Fi', 'Fantasy', 'Horror', 'Manga', 'Comics', 'Graffiti', 'Calligraphy', 'Typography', 'Lettering', 'Tattoo', 'Body Art', 'Fashion', 'Jewelry', 'Architecture', 'Interior', 'Industrial', 'Product', 'Furniture', 'Graphic', 'Web', 'UI', 'UX', 'Game', 'Logo', 'Icon', 'Poster', 'Packaging', 'Book', 'Magazine', 'Newspaper', 'Album', 'Movie', 'TV', 'Animation', 'Video', 'Sound', 'Music', 'Performance', 'Theater', 'Dance', 'Ceramic', 'Glass', 'Metal', 'Wood', 'Textile', 'Leather', 'Paper', 'Plastic', 'Stone', 'Concrete', 'Marble', 'Brick', 'Clay', 'Sand', 'Water', 'Fire', 'Air', 'Earth', 'Nature', 'Landscape', 'Cityscape', 'Portrait', 'Figure', 'Animal', 'Botanical', 'Food', 'Still Life', 'Abstract', 'Geometric', 'Pattern', 'Texture', 'Color', 'Black & White', 'Monochrome', 'Pastel', 'Neon', 'Retro', 'Vintage', 'Grunge', 'Glitch'],
 			key="art_styles",
 		)
 
-		color_scheme = st.multiselect(
-			"Select the color scheme that may apply in the image",
-			['Green', 'Blue', 'Red', 'Yellow', 'Orange', 'Purple', 'Pink', 'Brown', 'Black', 'White', 'Gray', 'Beige', 'Gold', 'Silver', 'Bronze', 'Copper', 'Rainbow', 'Pastel', 'Neon', 'Retro', 'Vintage', 'Grunge', 'Glitch'],
-			key="color_scheme",
+		c1, c2 = st.columns(2)
+
+		main_color = c1.color_picker(
+			"Select the main color scheme that may apply in the image",
+			key="main_color",
+		)
+
+		secondary_color = c2.color_picker(
+			"Select the secondary color scheme that may apply in the image",
+			key="secondary_color",
 		)
 
 		temp = st.slider('Temperatura (Nivel de creatividad del modelo) (0 a 1)', 0.0, 1.0, 0.5, 0.01)
@@ -89,7 +95,8 @@ def main():
 			"prompt_type": prompt_type,
 			"image_type": image_type,
 			"art_styles": art_styles,
-			"color_scheme": color_scheme,
+			"main_color": main_color,
+			"secondary_color": secondary_color,
 			"temp": temp,
 		}
 
