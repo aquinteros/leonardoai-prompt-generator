@@ -65,21 +65,20 @@ def generate_prompt(input_dict):
 	Basic information required to make Leonardo AI prompt:
 
 	- Prompt structure:
-	- The prompt structure will be in this format {structure}
+	- The prompt structure will be in this format: {structure}
 	- Word order and effective adjectives matter in the prompt. The subject, action, and specific details should be included. Adjectives like cute, medieval, or futuristic can be effective.
 	- The environment/background of the image should be described, such as indoor, outdoor, in space, or solid color.
 	- The exact type of image is: {input_dict['image_type']}.
 	- Art style-related keywords will be included in the prompt, consider the follwing: {input_dict['art_styles']}.
-    - The color palette can be described, such as pastel, dark, bright, or monochromatic, and should prioritize the use of this colors: {input_dict['color_scheme']}.
+    - The color palette can be described, such as pastel, dark, bright, or monochromatic, 
+    - You will create a list of colors that may apply in the image and it must be described with words in english. To generate the list, consider that the main hex code scheme is: {input_dict['main_color']} and the secondary hex code is: {input_dict['secondary_color']} use this colors to generate the list.
 	- Art inspirations should be listed to take inspiration from. Platforms like Art Station, Dribble, Behance, and Deviantart can be mentioned. Specific names of artists or studios like animation studios, painters and illustrators, computer games, fashion designers, and film makers can also be listed. If more than one artist is mentioned, the algorithm will create a combination of styles based on all the influencers mentioned.
 	- Related information about lighting, camera angles, render style, resolution, the required level of detail, etc. should be included at the end of the prompt.
 	- Camera shot type, camera lens, and view should be specified. Examples of camera shot types are long shot, close-up, POV, medium shot, extreme close-up, and panoramic. Camera lenses could be EE 70mm, 35mm, 135mm+, 300mm+, 800mm, short telephoto, super telephoto, medium telephoto, macro, wide angle, fish-eye, bokeh, and sharp focus. Examples of views are front, side, back, high angle, low angle, and overhead.
 	- Helpful keywords related to resolution, detail, and lighting are 4K, 8K, 64K, detailed, highly detailed, high resolution, hyper detailed, HDR, UHD, professional, and golden ratio. Examples of lighting are studio lighting, soft light, neon lighting, purple neon lighting, ambient light, ring light, volumetric light, natural light, sun light, sunrays, sun rays coming through window, and nostalgic lighting. Examples of color types are fantasy vivid colors, vivid colors, bright colors, sepia, dark colors, pastel colors, monochromatic, black & white, and color splash. Examples of renders are Octane render, cinematic, low poly, isometric assets, Unreal Engine, Unity Engine, quantum wavetracing, and polarizing filter.
 	- The weight of a keyword can be adjusted by using the syntax (((keyword))) , put only those keyword inside ((())) which is very important because it will have more impact so anything wrong will result in unwanted picture so be careful.
-
-	Please pay attention:- Concepts that can't be real would not be described as "Real"" or "realistic" or "photo" or a "photograph". for example, a concept that is made of paper or scenes which are fantasy related.
-
-	You will include an aditional block with a list off unwanted "keywords" in the prompt generation, for example: "nsfw, blurry eyes, two heads, two faces, plastic, deformed, blurry, bad anatomy, bad eyes, crossed eyes, poorly drawn face, mutation, mutated, extra limb" make them relevant to the prompt and the image type, the list will be called "negative_prompt".
+	- Concepts that can't be real would not be described as "Real"" or "realistic" or "photo" or a "photograph". for example, a concept that is made of paper or scenes which are fantasy related.
+	- You will include an aditional block with a list of unwanted characteristics in the prompt generation, for example: "nsfw, blurry eyes, two heads, two faces, plastic, deformed, blurry, bad anatomy, bad eyes, crossed eyes, poorly drawn face, mutation, mutated, extra limb" the list should include only items in one or two words, and add at least 15. the items must be relevant to the keyword {input_dict['keyword']} prompt and the image type, the list will be called "negative_prompt".
 
 	Important points to note :
 
